@@ -1,55 +1,69 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import clsx from "clsx";
+import Heading from "@theme/Heading";
+import styles from "./styles.module.css";
+import Link from "@docusaurus/Link";
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  imageUrl: string;
   description: JSX.Element;
+  link: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "LPサイト作成",
+    imageUrl: require("@site/static/img/lp-image.png").default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        <p>
+          HTML, CSS,
+          JavaScriptを使ってLPを実装します。最近のレイアウト手法を学び、CSSとJavaScriptで見た目と動きを整えます。
+        </p>
       </>
     ),
+    link: "/docs/lp/environment",
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "CRUDアプリ作成",
+    imageUrl: require("@site/static/img/crud-image.png").default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        <p>
+          Laravelを使ってCRUDアプリを実装します。PHPでシンプルな投稿アプリを作成し、JavaScriptフレームワークを用いたフロントエンド実装を学びます。
+        </p>
       </>
     ),
+    link: "/docs/crud/environment",
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "ECサイト作成",
+    imageUrl: require("@site/static/img/ec-image.png").default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        <p>
+          絵画専門のECサイトを実装します。LaravelでAPIサーバを構築し、NextJSでフロントエンドを実装します。DB設計とAPI設計も行います。
+        </p>
       </>
     ),
+    link: "/docs/ec/environment",
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, imageUrl, description, link }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx("col col--4")}>
+      <div className={clsx("text--center", styles.featureItem)}>
+        <img src={imageUrl} className={styles.featureimageUrl} alt={title} />
+        <div className="text--left padding-horiz--md">
+          <Heading as="h3">{title}</Heading>
+          {description}
+          <div className="text--center">
+            <Link className="button button--primary button--lg" to={link}>
+              詳細はこちら
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

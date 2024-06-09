@@ -3,10 +3,10 @@ sidebar_label: "環境構築"
 sidebar_position: 3
 id: environment
 title: 環境構築
-description: LP サイトの環境構築手順
+description: LP サイト開発の環境構築手順
 ---
 
-LP サイトを作成するための環境構築手順を説明します。
+LP サイトを実装するための環境構築手順を説明します。
 
 ## エディターのインストール
 
@@ -39,9 +39,6 @@ Visual Studio Code を起動し、左側のアイコンから Extensions（拡�
 
 ![Live Server](img/liveServer.png)
 
-
-
-
 ### Prettier
 
 続いて、`Prettier - Code formatter` をインストールします。  
@@ -51,5 +48,4 @@ Visual Studio Code を起動し、左側のアイコンから Extensions（拡�
 
 ![Prettier](img/prettier.png)
 
-以上で、LP サイト作成に必要な環境構築は完了です。
-
+以上で、LP サイト実装に必要な環境構築は完了です。

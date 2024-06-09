@@ -3,8 +3,8 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
+  title: "エンジニア養成課題",
+  tagline: "超本格サービス実装で本物の実力を身につける💪🔥",
   favicon: "img/favicon.ico",
   // Set the production url of your site here
   url: "https://carriage-inc.github.io",
@@ -42,7 +42,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: "img/social-card.png",
+    image: "img/service-summary.png",
     navbar: {
       title: "エンジニア養成課題",
       logo: {
