@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "エンジニア養成課題",
+  title: "エンジニア養成",
   tagline: "超本格サービス実装で本物の実力を身につける💪🔥",
   favicon: "img/favicon.ico",
   // Set the production url of your site here
@@ -44,7 +44,7 @@ const config: Config = {
   themeConfig: {
     image: "img/service-summary.png",
     navbar: {
-      title: "エンジニア養成課題",
+      title: "エンジニア養成",
       logo: {
         alt: "ロゴ",
         src: "img/logo.svg",
