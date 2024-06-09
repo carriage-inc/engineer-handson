@@ -6,27 +6,22 @@ const config: Config = {
   title: "My Site",
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
-
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://carriage-inc.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/engineer-handson/",
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "carriage-inc", // Usually your GitHub org/user name.
+  projectName: "engineer-handson", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "ja",
+    locales: ["ja"],
   },
 
   presets: [
@@ -35,17 +30,9 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -55,27 +42,33 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/social-card.png",
     navbar: {
-      title: "My Site",
+      title: "エンジニア養成課題",
       logo: {
-        alt: "My Site Logo",
+        alt: "ロゴ",
         src: "img/logo.svg",
       },
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "lpSidebar",
           position: "left",
-          label: "Tutorial",
+          label: "LPサイト",
         },
-        { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
-          label: "GitHub",
-          position: "right",
+          type: "docSidebar",
+          sidebarId: "crudSidebar",
+          position: "left",
+          label: "CRUDアプリ",
         },
+        {
+          type: "docSidebar",
+          sidebarId: "ecSidebar",
+          position: "left",
+          label: "ECサイト",
+        },
+        { to: "/blog", label: "参考記事", position: "left" },
       ],
     },
     footer: {
@@ -121,7 +114,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Carriage, Inc.`,
     },
     prism: {
       theme: prismThemes.github,
