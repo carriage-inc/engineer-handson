@@ -78,8 +78,16 @@ const config: Config = {
           title: "Docs",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs/intro",
+              label: "LPサイト",
+              to: "/docs/lp/environment",
+            },
+            {
+              label: "CRUDアプリ",
+              to: "/docs/crud/environment",
+            },
+            {
+              label: "ECサイト",
+              to: "/docs/ec/environment",
             },
           ],
         },
