@@ -1,6 +1,4 @@
 ---
-sidebar_label: "課題"
-id: task
 title: ヒーローセクションの実装
 description: ヒーローセクションの実装課題
 ---

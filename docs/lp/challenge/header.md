@@ -1,6 +1,4 @@
 ---
-sidebar_label: "課題"
-id: task
 title: ヘッダーの実装
 description: ヘッダーの実装課題
 ---
