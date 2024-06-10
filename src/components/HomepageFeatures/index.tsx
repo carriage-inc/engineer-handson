@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
         </p>
       </>
     ),
-    link: "/docs/lp/environment",
+    link: "/docs/lp/intro",
   },
   {
     title: "CRUDアプリ作成",
@@ -34,7 +34,7 @@ const FeatureList: FeatureItem[] = [
         </p>
       </>
     ),
-    link: "/docs/crud/environment",
+    link: "/docs/crud/intro",
   },
   {
     title: "ECサイト作成",
@@ -46,7 +46,7 @@ const FeatureList: FeatureItem[] = [
         </p>
       </>
     ),
-    link: "/docs/ec/environment",
+    link: "/docs/ec/intro",
   },
 ];
 
