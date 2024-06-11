@@ -49,4 +49,15 @@ Visual Studio Code を起動し、左側のアイコンから Extensions（拡�
 
 ![Prettier](img/prettier.png)
 
+### Japanese Language Pack
+
+VSCode の UI を日本語にするための拡張機能です。
+翻訳するとわかりにくくなることもあるため推奨ではありませんが、英語にどうしても抵抗がある場合インストールしてください。
+
+![Japanese Language Pack](img/japaneseLanguagePack.png)
+
+:::note
+反映するために VSCode の再起動が必要になる場合があります。
+:::
+
 以上で、LP サイト実装に必要な環境構築は完了です。

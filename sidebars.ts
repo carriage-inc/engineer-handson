@@ -15,6 +15,7 @@ const sidebars: SidebarsConfig = {
   lpSidebar: [
     "lp/intro",
     "lp/environment",
+    "lp/start-project",
     {
       type: "category",
       label: "レイアウトの基本",
