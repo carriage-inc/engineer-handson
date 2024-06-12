@@ -8,8 +8,7 @@ description: LPサイト課題の概要
 
 ## デザイン
 
-デザインは以下の Figma ファイルを参照してください。  
-画像などのリソースも、Figma ファイルの export 機能を使ってダウンロードしてください。
+デザインは以下の Figma ファイルを参照してください。
 
 [Figma ファイルのリンク](https://www.figma.com/design/A1HmxUxELIrcVKk01yxjb0/%E3%80%90%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E9%A4%8A%E6%88%90%E3%80%91%E3%83%A9%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%9A%E3%83%BC%E3%82%B8?node-id=0-1&t=YKJ0IqerE7MgRECU-1)
 
@@ -31,6 +30,14 @@ description: LPサイト課題の概要
 8. [フッター](footer.md)
 
 次のステップから、PC とスマートフォンの画面幅に対応したデザインを作成していきましょう。
+
+## 必要ファイルのダウンロード
+
+以下のリンクから、課題で使用する画像をダウンロードしてください。
+
+[zip ファイルダウンロード](../../../static/downloads/tripshare_images.zip)
+
+アイコンなどのリソースは、Figma ファイルの export 機能を使ってもダウンロードできます。
 
 ## 提出方法
 

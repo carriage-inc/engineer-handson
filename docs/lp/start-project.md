@@ -37,7 +37,7 @@ VSCode を使う場合は、右クリックメニューの New File から新規
 
 `destyle.css`には、ブラウザのデフォルトスタイルをリセットする CSS を記述します。
 
-[destyle.css](../../static/destyle.css) を開いて、ページ内の CSS コードをコピーし、先ほど作成した`destyle.css` 内に貼り付けてください。
+[destyle.css](../../static/downloads/destyle.css) を開いて、ページ内の CSS コードをコピーし、先ほど作成した`destyle.css` 内に貼り付けてください。
 
 ### 3. HTML の基本構造を記述
 
