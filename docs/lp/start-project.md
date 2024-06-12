@@ -23,10 +23,21 @@ VSCode を使う場合は、メニューの File > Open Folder から新規フ�
 次に、HTML ファイルと CSS ファイルを作成します。
 
 VSCode を使う場合は、右クリックメニューの New File から新規ファイルを作成します。
-ファイル名は `index.html` と `style.css` としてください。
+以下の 4 つのファイルを作成してください。
+
+- `index.html`
+- `destyle.css`
+- `style.css`
+- `script.js`
 
 ![New File](img/newFile.png)
 ![Name Index.html](img/naming.png)
+
+### 3. destyle.css のダウンロード
+
+`destyle.css`には、ブラウザのデフォルトスタイルをリセットする CSS を記述します。
+
+[destyle.css](../../static/destyle.css) を開いて、ページ内の CSS コードをコピーし、先ほど作成した`destyle.css` 内に貼り付けてください。
 
 ### 3. HTML の基本構造を記述
 
@@ -39,10 +50,23 @@ index.html に、以下の内容を記述してください。
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LP サイト</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="destyle.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- ここにコンテンツを記述 -->
+
+    <!-- scripts -->
+    <script src="script.js"></script>
   </body>
 </html>
 ```
