@@ -670,16 +670,7 @@ Flexbox を使用するには、まず、親要素（container）に`display: fl
 
 ## 7. Flex Item の個別設定
 
-各アイテムには`flex`、`order`、および`align-self`プロパティを使用して個別に設定ができます。  
-まず、item に id を追加してください。
-
-```html title="index.html"
-<div class="container">
-  <div class="item" style={{ border: "1px solid", padding: "8px" }} id="item1">Item 1</div>
-  <div class="item" style={{ border: "1px solid", padding: "8px" }} id="item2">Item 2</div>
-  <div class="item" style={{ border: "1px solid", padding: "8px" }} id="item3">Item 3</div>
-</div>
-```
+Flexbox 内の各アイテムには`flex`、`order`、および`align-self`プロパティを使用して個別に設定ができます。
 
 ### Order
 
@@ -687,31 +678,206 @@ Flexbox を使用するには、まず、親要素（container）に`display: fl
 
 ```css title="style.css"
 .container {
+  border: 1px solid;
+  padding: 16px;
   display: flex;
+  flex-direction: row;
+}
+
+.item {
+  border: 1px solid;
+  padding: 8px;
 }
 
 #item1 {
-  order: 3;
-}
-
-#item2 {
   order: 2;
 }
 
-#item3 {
+#item2 {
   order: 1;
 }
 ```
 
-### Flex
+<div
+  class="container"
+  style={{
+    marginBottom: "16px", 
+    border: "1px solid", 
+    padding: "16px",
+    display: "flex",
+    flexDirection: "row",
+  }}
+>
+  <div class="item" style={{ border: "1px solid", padding: "8px", order: 2 }}>Item 1</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px", order: 1 }}>Item 2</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px" }}>Item 3</div>
+</div>
 
-`flex`プロパティは、アイテムの拡大、縮小、および基準サイズを設定します。`flex-grow`、`flex-shrink`、`flex-basis`の 3 つの値を一括で設定できます。
+### Flex grow
+
+`flex-grow`プロパティは、アイテムが余白を埋める方法を設定します。デフォルトは`0`です。
 
 ```css title="style.css"
+.container {
+  border: 1px solid;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
 .item {
-  flex: 1 1 auto;
+  border: 1px solid;
+  padding: 8px;
+}
+
+#item1 {
+  flex-grow: 1;
+}
+
+#item2 {
+  flex-grow: 2;
 }
 ```
+
+<div
+  class="container"
+  style={{
+    marginBottom: "16px", 
+    border: "1px solid", 
+    padding: "16px",
+    display: "flex",
+    flexDirection: "row",
+  }}
+>
+  <div class="item" style={{ border: "1px solid", padding: "8px", flexGrow: 1 }}>Item 1</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px", flexGrow: 2 }}>Item 2</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px" }}>Item 3</div>
+</div>
+
+### Flex Shrink
+
+`flex-shrink`プロパティは、アイテムが余白を縮める方法を設定します。デフォルトは`1`です。
+
+```css title="style.css"
+.container {
+  border: 1px solid;
+  padding: 16px;
+  display: flex;
+  width: 150px; /* 効果をわかりやすくするために幅を設定 */
+  flex-direction: row;
+}
+
+.item {
+  border: 1px solid;
+  padding: 8px;
+}
+
+#item1 {
+  flex-shrink: 1;
+}
+
+#item2 {
+  flex-shrink: 2;
+}
+```
+
+<div
+  class="container"
+  style={{
+    marginBottom: "16px", 
+    border: "1px solid", 
+    padding: "16px",
+    display: "flex",
+    width: "150px",
+    flexDirection: "row",
+  }}
+>
+  <div class="item" style={{ border: "1px solid", flexShrink: 1 }}>アイテム1</div>
+  <div class="item" style={{ border: "1px solid", flexShrink: 2 }}>アイテム2</div>
+  <div class="item" style={{ border: "1px solid" }}>アイテム3</div>
+</div>
+
+### Flex Basis
+
+`flex-basis`プロパティは、アイテムの初期サイズを設定します。デフォルトは`auto`です。
+
+```css title="style.css"
+.container {
+  border: 1px solid;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  border: 1px solid;
+  padding: 8px;
+}
+
+#item1 {
+  flex-basis: 100px;
+}
+
+#item2 {
+  flex-basis: 200px;
+}
+```
+
+<div
+  class="container"
+  style={{
+    marginBottom: "16px", 
+    border: "1px solid", 
+    padding: "16px",
+    display: "flex",
+    flexDirection: "row",
+  }}
+>
+  <div class="item" style={{ border: "1px solid", padding: "8px", flexBasis: "100px" }}>Item 1</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px", flexBasis: "200px" }}>Item 2</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px" }}>Item 3</div>
+</div>
+
+### Flex
+
+`flex`プロパティは、`flex-grow`、`flex-shrink`、`flex-basis`のショートハンドです。
+
+```css title="style.css"
+.container {
+  border: 1px solid;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  border: 1px solid;
+  padding: 8px;
+}
+
+#item1 {
+  flex: 1 1 100px;
+}
+
+#item2 {
+  flex: 2 2 200px;
+}
+```
+
+<div
+  class="container"
+  style={{
+    marginBottom: "16px", 
+    border: "1px solid", 
+    padding: "16px",
+    display: "flex",
+    flexDirection: "row",
+  }}
+>
+  <div class="item" style={{ border: "1px solid", padding: "8px", flex: "1 1 100px" }}>Item 1</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px", flex: "2 2 200px" }}>Item 2</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px" }}>Item 3</div>
+</div>
 
 ### Align Self
 
@@ -719,8 +885,16 @@ Flexbox を使用するには、まず、親要素（container）に`display: fl
 
 ```css title="style.css"
 .container {
+  border: 1px solid;
+  padding: 16px;
   display: flex;
-  height: 200px;
+  height: 200px; /* 効果をわかりやすくするために高さを設定 */
+  flex-direction: row;
+}
+
+.item {
+  border: 1px solid;
+  padding: 8px;
 }
 
 #item2 {
@@ -732,32 +906,23 @@ Flexbox を使用するには、まず、親要素（container）に`display: fl
 }
 ```
 
-## 8. 実際の例
-
-以下は、すべての基本プロパティを使用した例です：
-
-```html title="index.html"
-<div class="container">
+<div
+  class="container"
+  style={{
+    marginBottom: "16px", 
+    border: "1px solid", 
+    padding: "16px",
+    display: "flex",
+    height: "200px",
+    flexDirection: "row",
+  }}
+>
   <div class="item" style={{ border: "1px solid", padding: "8px" }}>Item 1</div>
-  <div class="item" style={{ border: "1px solid", padding: "8px" }}>Item 2</div>
-  <div class="item" style={{ border: "1px solid", padding: "8px" }}>Item 3</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px", alignSelf: "center" }}>Item 2</div>
+  <div class="item" style={{ border: "1px solid", padding: "8px", alignSelf: "flex-end" }}>Item 3</div>
 </div>
-```
 
-```css title="style.css"
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
+## まとめ
 
-.item {
-  flex: 1 1 200px;
-  order: 2;
-  align-self: flex-start;
-}
-```
-
-この設定では、アイテムは横方向に配置され、スペースが均等に割り当てられ、必要に応じて折り返されます。アイテムの順序や配置も個別に設定されています。
+Flexbox は、現代の Web デザインでよく使用されるレイアウト方法です。  
+使い方を覚えて、柔軟なレイアウトを作成しましょう。
