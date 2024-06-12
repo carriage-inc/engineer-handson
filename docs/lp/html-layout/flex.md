@@ -312,15 +312,15 @@ Flexbox を使用するには、まず、親要素（container）に`display: fl
   padding: 8px;
 }
 
-.item1 {
+#item1 {
   padding: 8px;
 }
 
-.item2 {
+#item2 {
   padding: 16px 8px;
 }
 
-.item3 {
+#item3 {
   padding: 24px 8px;
 }
 ```
@@ -439,15 +439,15 @@ Flexbox を使用するには、まず、親要素（container）に`display: fl
   padding: 8px;
 }
 
-.item1 {
+#item1 {
   padding: 8px;
 }
 
-.item2 {
+#item2 {
   padding: 16px 8px;
 }
 
-.item3 {
+#item3 {
   padding: 24px 8px;
 }
 ```
