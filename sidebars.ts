@@ -43,7 +43,17 @@ const sidebars: SidebarsConfig = {
         description:
           "旅行シェアサービス「TripShare」のLPページを実装してみましょう！",
       },
-      items: ["lp/challenge/intro", "lp/challenge/header", "lp/challenge/hero"],
+      items: [
+        "lp/challenge/intro",
+        "lp/challenge/header",
+        "lp/challenge/hero",
+        "lp/challenge/service",
+        "lp/challenge/feature",
+        "lp/challenge/voice",
+        "lp/challenge/cta",
+        "lp/challenge/contact",
+        "lp/challenge/footer",
+      ],
     },
   ],
   crudSidebar: [

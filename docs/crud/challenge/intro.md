@@ -1,5 +1,5 @@
 ---
-title: 作るもの
+title: 課題概要
 description: CRUDサイト課題の概要
 ---
 

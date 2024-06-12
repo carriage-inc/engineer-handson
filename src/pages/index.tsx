@@ -21,7 +21,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/lp/environment"
+            to="/docs/lp/intro"
           >
             学習を開始する
           </Link>
