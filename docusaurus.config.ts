@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "エンジニア養成",
+  title: "マナテク",
   tagline: "超本格サービス実装で本物の実力を身につける💪🔥",
   favicon: "img/favicon.ico",
   // Set the production url of your site here
@@ -44,10 +44,11 @@ const config: Config = {
   themeConfig: {
     image: "img/service-summary.png",
     navbar: {
-      title: "エンジニア養成",
+      title: "",
       logo: {
         alt: "ロゴ",
-        src: "img/logo.svg",
+        src: "img/logo.png",
+        srcDark: "img/logo-dark.png",
       },
       items: [
         {
@@ -72,7 +73,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: "dark",
+      style: "light",
       links: [
         {
           title: "Docs",
@@ -92,19 +93,11 @@ const config: Config = {
           ],
         },
         {
-          title: "Community",
+          title: "SNS",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
+              label: "X",
+              href: "https://x.com/carriage_inc",
             },
           ],
         },
@@ -112,12 +105,8 @@ const config: Config = {
           title: "More",
           items: [
             {
-              label: "Blog",
+              label: "参考記事",
               to: "/blog",
-            },
-            {
-              label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
             },
           ],
         },
