@@ -59,6 +59,7 @@ const sidebars: SidebarsConfig = {
   crudSidebar: [
     "crud/intro",
     "crud/environment",
+    "crud/start-project",
     {
       type: "category",
       label: "Laravelの基本",
