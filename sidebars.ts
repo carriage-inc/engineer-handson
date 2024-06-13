@@ -67,7 +67,7 @@ const sidebars: SidebarsConfig = {
         type: "generated-index",
         title: "Laravelの基本",
         slug: "laravel-basic",
-        description: "Laravelの基本について解説します。",
+        description: "Laravelの基本的な使い方について解説します。",
       },
       items: ["crud/laravel/about"],
     },
