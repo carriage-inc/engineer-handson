@@ -42,7 +42,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         <p>
-          絵画専門のECサイトを実装します。LaravelでAPIサーバを構築し、NextJSでフロントエンドを実装します。DB設計とAPI設計も行います。
+          絵画専門のECサイトを実装します。LaravelでAPIサーバを構築し、Next.jsでフロントエンドを実装します。DB設計とAPI設計も行います。
         </p>
       </>
     ),

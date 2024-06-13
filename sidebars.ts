@@ -88,10 +88,10 @@ const sidebars: SidebarsConfig = {
     "ec/environment",
     {
       type: "category",
-      label: "NextJSの基本",
+      label: "Next.jsの基本",
       link: {
         type: "generated-index",
-        title: "NextJSの基本",
+        title: "Next.jsの基本",
         slug: "nextjs-basic",
         description: "laravelの基本について解説します。",
       },
