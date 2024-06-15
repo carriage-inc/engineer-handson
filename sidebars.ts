@@ -62,14 +62,25 @@ const sidebars: SidebarsConfig = {
     "crud/start-project",
     {
       type: "category",
-      label: "Laravelの基本",
+      label: "Laravelチュートリアル",
       link: {
         type: "generated-index",
-        title: "Laravelの基本",
-        slug: "laravel-basic",
-        description: "Laravelの基本的な使い方について解説します。",
+        title: "Laravelチュートリアル",
+        slug: "laravel-tutorial",
+        description:
+          "Laravelの基本的な使い方についてチュートリアルを通して学びましょう！",
       },
-      items: ["crud/laravel/about"],
+      items: [
+        "crud/tutorial/about_laravel",
+        "crud/tutorial/about",
+        "crud/tutorial/basics",
+        "crud/tutorial/migration",
+        "crud/tutorial/list",
+        "crud/tutorial/create",
+        "crud/tutorial/update",
+        "crud/tutorial/delete",
+        "crud/tutorial/auth",
+      ],
     },
     {
       type: "category",
