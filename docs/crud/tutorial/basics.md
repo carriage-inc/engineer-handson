@@ -179,12 +179,12 @@ Route::get('/sample', [SampleController::class, 'index']); // 追加
 
 ![alt text](../img/helloWorld.png)
 
-### シングルアクションコントローラ
+### Single Action Controller
 
 上記の例では、`SampleController` に `index` メソッドを追加しましたが、色々なアクションを追加していくと、ファイルがどんどん肥大化してしまいます。  
 そのため、コントローラーには、1 つのアクションだけを持つようにするのがおすすめです。
 
-そのようなコントローラーをシングルアクションコントローラーと呼び、Laeravel では以下のように `--invokable` オプションをつけて `make:controller` コマンドを実行することで作成できます。
+そのようなコントローラーを Single Action Controller と呼び、Laeravel では以下のように `--invokable` オプションをつけて `make:controller` コマンドを実行することで作成できます。
 
 **一度 `SampleController` を削除して**、以下のコマンドを実行してみましょう。
 
