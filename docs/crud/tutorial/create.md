@@ -10,6 +10,11 @@ description: タスク新規作成機能の実装の説明
 
 ## コントローラーの作成
 
+タスク新規作成機能を実装するために、以下のコントローラーを作成します。
+
+- Task/Create/IndexController：タスク新規作成画面を返す
+- Task/Create/StoreController：タスク新規作成処理を行う
+
 ### Create/IndexController
 
 まず、タスク新規作成画面を返す `Task/Create/IndexController` を作成します。
