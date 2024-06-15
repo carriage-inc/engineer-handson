@@ -6,7 +6,7 @@ description: タスク新規作成機能の実装の説明
 
 ## 完成図
 
-<!-- ![alt text](../img/taskCreate.png) -->
+![alt text](../img/taskCreate.png)
 
 ## コントローラーの作成
 
