@@ -407,6 +407,20 @@ public function __invoke(Request $request, $id)
 
 `$id` という引数を追加することで、パスパラメータを受け取ることができます。
 
+他の方法として、`Request` クラスを使ってパスパラメータを取得することもできます。
+
+```php title="app/Http/Controllers/SampleController.php"
+public function __invoke(Request $request)
+{
+    $id = $request->route('id');
+    return "ID: $id";
+}
+```
+
+`$request->route('id')` メソッドでパスパラメータを取得します。
+
+パラメータの数が多い時は、`$request->route()` メソッドを使う方が見やすいかもしれません。
+
 次に、`routes/web.php` の設定を以下のように変更します。
 
 ```php title="routes/web.php"
