@@ -143,30 +143,26 @@ sail artisan make:view tasks.create
 
 そして、以下のようにフォームを記述します。
 
-```html title="resources/views/tasks/create.blade.php"
+```php title="resources/views/tasks/create.blade.php"
 <x-layout>
-  <h1 class="text-3xl">タスク新規作成</h1>
+    <h1 class="text-3xl">タスク新規作成</h1>
 
-  <form method="POST" action="{{ route('tasks.store') }}">
-    @csrf
+    <form method="POST" action="{{ route('tasks.store') }}">
+        @csrf
 
-    <div class="mt-4">
-      <label for="title" class="block">タイトル</label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        class="w-full border px-3 py-2"
-      />
-    </div>
+        <div class="mt-4">
+            <label for="title" class="block">タイトル</label>
+            <input type="text" id="title" name="title" />
+        </div>
 
-    <div class="mt-4">
-      <button type="submit" class="bg-blue-500 text-white px-4 py-2">
-        登録
-      </button>
-    </div>
-  </form>
+        <div class="mt-4">
+            <button type="submit">
+                登録
+            </button>
+        </div>
+    </form>
 </x-layout>
+
 ```
 
 form の送信先として、action 属性に`route('tasks.store')` を指定しています。
@@ -201,7 +197,7 @@ http://localhost/tasks/create にアクセスすると、タスク新規作成�
   <h1 class="text-3xl">タスク一覧</h1>
 
   // 追加
-  <a href="{{ route('tasks.create') }}" class="bg-blue-500 text-white px-4 py-2">新規作成</a>
+  <a href="{{ route('tasks.create') }}">新規作成</a>
 
   <table>
     // 省略
@@ -215,34 +211,30 @@ http://localhost/tasks/create にアクセスすると、タスク新規作成�
 
 まず、`resources/views/tasks/create.blade.php` を以下のように修正します。
 
-```html title="resources/views/tasks/create.blade.php"
+```php title="resources/views/tasks/create.blade.php"
 <x-layout>
-  <h1 class="text-3xl">タスク新規作成</h1>
+    <h1 class="text-3xl">タスク新規作成</h1>
 
-  <form method="POST" action="{{ route('tasks.store') }}">
-    @csrf
+    <form method="POST" action="{{ route('tasks.store') }}">
+        @csrf
 
-    <div class="mt-4">
-      <label for="title" class="block">タイトル</label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        class="w-full border px-3 py-2"
-      />
-    </div>
+        <div class="mt-4">
+            <label for="title" class="block">タイトル</label>
+            <input type="text" id="title" name="title" />
+        </div>
 
-    @error('title')
-    <div class="mt-2 text-red-500 text-sm">{{ $message }}</div>
-    @enderror
+        @error('title')
+            <div class="mt-2 text-red-500 text-sm">{{ $message }}</div>
+        @enderror
 
-    <div class="mt-4">
-      <button type="submit" class="bg-blue-500 text-white px-4 py-2">
-        登録
-      </button>
-    </div>
-  </form>
+        <div class="mt-4">
+            <button type="submit">
+                登録
+            </button>
+        </div>
+    </form>
 </x-layout>
+
 ```
 
 @error ディレクティブは、指定したフィールドにエラーがある場合に、エラーメッセージを表示します。
