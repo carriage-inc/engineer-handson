@@ -11,7 +11,7 @@ Docker Desktop のインストールが完了したら、次に Laravel プロ�
 
 以下のコマンドを実行してください。途中でパスワードを求められる場合があります。
 
-```bash title="shell"
+```bash
 curl -s "https://laravel.build/cinema-log?php=82" | bash
 ```
 
@@ -21,7 +21,7 @@ Laravel のバージョンを 11 系にするために、`php=82`を指定して
 
 プロジェクトの作成が完了したら、ルートディレクトリに移動して、Laravel Sail を起動します。
 
-```bash title="shell"
+```bash
 cd cinema-log
 ./vendor/bin/sail up -d
 ```
@@ -38,7 +38,7 @@ Laravel Sail は、Laravel アプリケーションを Docker コンテナで動
 
 毎回 `./vendor/bin/sail` を入力するのは面倒なので、エイリアスを設定しておきましょう。
 
-```bash title="shell"
+```bash
 alias sail='bash vendor/bin/sail'
 ```
 
@@ -216,7 +216,7 @@ ports はコンテナのポートとホストマシンのポートをマッピ�
 
 デフォルトでは、`laravel.test` コンテナのタイムゾーンは UTC になっています。
 
-```bash title="shell"
+```bash
 sail shell
 date
 ```
@@ -252,7 +252,7 @@ ENV TZ='Asia/Tokyo'  # UTC から変更
 
 そして、Docker イメージを再ビルドします。
 
-```bash title="shell"
+```bash
 sail build --no-cache
 ```
 
@@ -263,14 +263,14 @@ sail build --no-cache
 
 ビルドが終わったら、一度コンテナを停止してから再起動してください。
 
-```bash title="shell"
+```bash
 sail down
 sail up -d
 ```
 
 最後に、以下のコマンドでタイムゾーンが変更されていることを確認しましょう。
 
-```bash title="shell"
+```bash
 sail shell
 date
 ```
@@ -318,12 +318,12 @@ mysql:
 
 一度コンテナを停止してから再起動し、MySQL の文字コードが `utf8mb4` になっていることを確認しましょう。
 
-```bash title="shell"
+```bash
 sail down
 sail up -d
 ```
 
-```bash title="shell"
+```bash
 sail mysql
 show variables like 'character_set%';
 ```

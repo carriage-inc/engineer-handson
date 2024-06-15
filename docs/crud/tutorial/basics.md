@@ -103,7 +103,7 @@ graph TD
 
 artisan コマンドを使って Controller を作成します。
 
-```bash title="shell"
+```bash
 sail artisan make:controller SampleController
 ```
 
@@ -188,7 +188,7 @@ Route::get('/sample', [SampleController::class, 'index']); // 追加
 
 **一度 `SampleController` を削除して**、以下のコマンドを実行してみましょう。
 
-```bash title="shell"
+```bash
 sail artisan make:controller SampleController --invokable
 ```
 
@@ -240,7 +240,7 @@ Route::get('/sample', SampleController::class);
 
 まずは View を作成します。
 
-```bash title="shell"
+```bash
 sail artisan make:view sample
 ```
 
@@ -471,7 +471,7 @@ public function __invoke(Request $request)
 
 まずは artisan コマンドを使ってフォームを作成します。
 
-```bash title="shell"
+```bash
 sail artisan make:view form
 ```
 
