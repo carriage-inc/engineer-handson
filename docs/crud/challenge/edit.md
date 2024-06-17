@@ -1,61 +1,24 @@
 ---
-sidebar_label: "映画編集ページ"
-title: 映画編集ページの実装
-description: 映画編集ページの実装課題
+title: 9. 編集画面実装
+description: 編集画面実装課題
 ---
 
-## 目標
+## 課題
 
-映画編集ページのコンポーネントを作成し、既存の映画の情報を編集できるようにします。
+映画記録の編集画面を実装してください。
 
-## 課題内容
+![alt text](../img/記録編集画面.png)
 
-1. `resources/js/Pages/Movies/Edit.jsx` ファイルを作成します。
-2. 編集する映画の情報をフォームに表示します。
-3. フォームの入力内容をサーバーに送信して、映画の情報を更新します。
+## 要件
 
-## ヒント
+- 画面を開いたら、既存の映画記録の情報が入力された状態で表示されるようにしてください。
+- キャンセルボタンを押した際の動作は以下の通りです。
 
-- `Inertia.put` を使ってフォームのデータを送信します。
-- 初期値には編集する映画の情報を使用します。
+  - 何も変更していない場合は、そのまま詳細画面に遷移します。
+  - 変更している場合はダイアログを表示し、「確定」をクリックすると詳細画面に遷移します。
 
-```jsx
-import React, { useState } from "react";
-import { Inertia } from "@inertiajs/inertia";
+  ![alt text](../img/編集取り消し確認ダイアログ.png)
 
-const Edit = ({ movie }) => {
-  const [title, setTitle] = useState(movie.title);
-  const [description, setDescription] = useState(movie.description);
+## 提出方法
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    Inertia.put(`/movies/${movie.id}`, { title, description });
-  };
-
-  return (
-    <div>
-      <h1>Edit Movie</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </div>
-        <button type="submit">Save</button>
-      </form>
-    </div>
-  );
-};
-
-export default Edit;
-```
+- 実装したファイルを GitHub にプッシュしてプルリクエストを作成し、 URL を共有してください。

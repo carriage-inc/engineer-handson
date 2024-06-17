@@ -1,41 +1,29 @@
 ---
-sidebar_label: "映画リストページ"
-title: 映画リストページの実装
-description: 映画リストページの実装課題
+title: 6. リスト画面実装
+description: リスト画面実装課題
 ---
 
-## 目標
+## 課題
 
-映画リストページのコンポーネントを作成し、映画の一覧を表示できるようにします。
+映画記録のリスト画面を実装してください。
 
-## 課題内容
+![alt text](../img/映画記録リスト.png)
 
-1. `resources/js/Pages/Movies/Index.jsx` ファイルを作成します。
-2. 映画の一覧を取得して表示します。
-3. 各映画の詳細ページへのリンクを追加します。
+## 要件
+
+- 検索フォームはタイトルとあらすじ、感想で検索できるようにしてください。
+- 絞り込みはカテゴリーで絞り込めるようにしてください。
+- 並び替えは、新しい順、古い順、評価の高い順、評価の低い順のうちのどれか一つを選べるようにしてください。デフォルトは新しい順です。
+- 右下の「＋」ボタンを押すと、登録画面に遷移するようにしてください。
+- ページネーションは発展課題なので、余裕があれば実装してください。
 
 ## ヒント
 
-- `InertiaLink` を使ってページ間のリンクを作成します。
-- 映画の一覧は`props`から受け取ります。
+- 実装に当たって認証が必要であれば、Breeze で生成された画面からユーザー登録してログインしてください。
+- 以下の部分は一つのコンポーネントにすると良いでしょう。
 
-```jsx
-import React from "react";
-import { InertiaLink } from "@inertiajs/inertia-react";
+![alt text](../img/listItem.png)
 
-const Index = ({ movies }) => (
-  <div>
-    <h1>Movies</h1>
-    <InertiaLink href="/movies/create">Create Movie</InertiaLink>
-    <ul>
-      {movies.map((movie) => (
-        <li key={movie.id}>
-          <InertiaLink href={`/movies/${movie.id}`}>{movie.title}</InertiaLink>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+## 提出方法
 
-export default Index;
-```
+- 実装したファイルを GitHub にプッシュしてプルリクエストを作成し、 URL を共有してください。

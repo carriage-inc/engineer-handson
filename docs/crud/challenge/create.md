@@ -1,60 +1,25 @@
 ---
-sidebar_label: "映画作成ページ"
-title: 映画作成ページの実装
-description: 映画作成ページの実装課題
+title: 8. 登録画面実装
+description: 登録画面実装課題
 ---
 
-## 目標
+## 課題
 
-映画作成ページのコンポーネントを作成し、新しい映画を登録できるようにします。
+映画記録の登録画面を実装してください。
 
-## 課題内容
+![alt text](../img/記録作成画面.png)
 
-1. `resources/js/Pages/Movies/Create.jsx` ファイルを作成します。
-2. 映画を作成するためのフォームを表示します。
-3. フォームの入力内容をサーバーに送信して、新しい映画を登録します。
+## 要件
 
-## ヒント
+- 画像をアップロードできるようにしてください。
+- タイトル、カテゴリー、評価、あらすじ、感想を入力できるようにしてください。
+- あらすじは任意入力、それ以外は必須入力として、バリデーションを実装してください。
+- 左上の「×」ボタンを押した際の動作は以下の通りです。
+  - 何も入力していない場合は、そのままリスト画面に遷移します。
+  - 入力している場合はダイアログを表示し、「記録を破棄」をクリックするとリスト画面に遷移します。
 
-- `Inertia.post` を使ってフォームのデータを送信します。
+![alt text](../img/記録破棄確認ダイアログ.png)
 
-```jsx
-import React, { useState } from "react";
-import { Inertia } from "@inertiajs/inertia";
+## 提出方法
 
-const Create = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    Inertia.post("/movies", { title, description });
-  };
-
-  return (
-    <div>
-      <h1>Create Movie</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </div>
-        <button type="submit">Save</button>
-      </form>
-    </div>
-  );
-};
-
-export default Create;
-```
+- 実装したファイルを GitHub にプッシュしてプルリクエストを作成し、 URL を共有してください。

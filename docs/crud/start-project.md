@@ -12,17 +12,19 @@ Docker Desktop のインストールが完了したら、次に Laravel プロ�
 以下のコマンドを実行してください。途中でパスワードを求められる場合があります。
 
 ```bash
-curl -s "https://laravel.build/cinema-log?php=82" | bash
+curl -s "https://laravel.build/sample-app?php=82" | bash
 ```
 
 :::note
-Laravel のバージョンを 11 系にするために、`php=82`を指定しています。
-:::
+
+- Laravel のバージョンを 11 系にするために、`php=82`を指定しています。
+- sample-app の部分を変えれば、プロジェクト名を変更できます。
+  :::
 
 プロジェクトの作成が完了したら、ルートディレクトリに移動して、Laravel Sail を起動します。
 
 ```bash
-cd cinema-log
+cd sample-app
 ./vendor/bin/sail up -d
 ```
 
@@ -30,7 +32,7 @@ sail コマンドによって、Docker コンテナが起動し、Laravel アプ
 
 http://localhost にアクセスして、Laravel の初期画面が表示されれば環境構築は完了です。
 
-VSCode を使って、cinema-log ディレクトリを開いてください。
+VSCode を使って、sample-app ディレクトリを開いてください。
 
 ### Laravel Sail のコマンド
 
