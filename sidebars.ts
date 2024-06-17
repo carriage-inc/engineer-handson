@@ -67,8 +67,7 @@ const sidebars: SidebarsConfig = {
         type: "generated-index",
         title: "Laravelチュートリアル",
         slug: "laravel-tutorial",
-        description:
-          "Laravelの基本的な使い方についてチュートリアルを通して学びましょう！",
+        description: "Laravelの基本的な使い方をチュートリアルで学びましょう！",
       },
       items: [
         "crud/tutorial/about_laravel",
@@ -110,16 +109,18 @@ const sidebars: SidebarsConfig = {
   ecSidebar: [
     "ec/intro",
     "ec/environment",
+    "ec/start-project",
     {
       type: "category",
-      label: "Next.jsの基本",
+      label: "Next.jsチュートリアル",
       link: {
         type: "generated-index",
-        title: "Next.jsの基本",
+        title: "Next.jsチュートリアル",
         slug: "nextjs-basic",
-        description: "laravelの基本について解説します。",
+        description:
+          "Reactの入門から初めて、Next.jsの基本的な使い方をチュートリアルで学びましょう！",
       },
-      items: ["ec/nextjs/about"],
+      items: ["ec/tutorial/about_nextjs", "ec/tutorial/about"],
     },
     {
       type: "category",
