@@ -286,7 +286,7 @@ mysql> select * from tasks;
 
 ## Model
 
-一度、[基本的な構造](/docs/crud/tutorial/about_laravel#基本的な構造)の図を見てみましょう。ここまでの作業は、`Database` にあたる部分を作成してきました。
+一度、[基本的な構造](/docs/crud/tutorial/about-laravel#基本的な構造)の図を見てみましょう。ここまでの作業は、`Database` にあたる部分を作成してきました。
 
 次に、Database を操作するためのクラスである `Model` を作成します。`Model` は、データベースのテーブルと 1 対 1 で対応します。
 
