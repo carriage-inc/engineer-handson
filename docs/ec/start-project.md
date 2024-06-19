@@ -1,7 +1,6 @@
 ---
-sidebar_label: プロジェクト作成
-title: プロジェクト作成
-description: プロジェクト作成方法の説明
+title: Next.jsプロジェクト作成
+description: Next.jsプロジェクト作成方法の説明
 ---
 
 ## Next.js プロジェクトの作成

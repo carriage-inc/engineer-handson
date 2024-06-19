@@ -70,7 +70,7 @@ const sidebars: SidebarsConfig = {
         description: "Laravelの基本的な使い方をチュートリアルで学びましょう！",
       },
       items: [
-        "crud/tutorial/about_laravel",
+        "crud/tutorial/about-laravel",
         "crud/tutorial/about",
         "crud/tutorial/basics",
         "crud/tutorial/migration",
@@ -109,7 +109,7 @@ const sidebars: SidebarsConfig = {
   ecSidebar: [
     "ec/intro",
     "ec/environment",
-    "ec/start-project",
+
     {
       type: "category",
       label: "Next.jsチュートリアル",
@@ -120,8 +120,23 @@ const sidebars: SidebarsConfig = {
         description:
           "Reactの入門から初めて、Next.jsの基本的な使い方をチュートリアルで学びましょう！",
       },
-      items: ["ec/tutorial/about_nextjs", "ec/tutorial/about"],
+      items: [
+        "ec/tutorial/about",
+        "ec/tutorial/start-react",
+        "ec/tutorial/component-and-props",
+        "ec/tutorial/state-management",
+        "ec/tutorial/about-nextjs",
+        "ec/tutorial/stylying-and-seo",
+        "ec/tutorial/routing-and-navigation",
+        "ec/tutorial/server-and-cliend-components",
+        "ec/tutorial/dynamic-routing-and-route-groups",
+        "ec/tutorial/segment-rule-files",
+        "ec/tutorial/suspense-and-streaming",
+        "ec/tutorial/auth",
+      ],
     },
+    "ec/start-project",
+    "ec/laravel-clean-architecture",
     {
       type: "category",
       label: "課題",
@@ -131,7 +146,14 @@ const sidebars: SidebarsConfig = {
         slug: "ec/challenge",
         description: "絵画専門のECサイト「イロアート」を実装してみましょう！",
       },
-      items: ["ec/challenge/intro"],
+      items: [
+        "ec/challenge/intro",
+        "ec/challenge/db-design",
+        "ec/challenge/api-design",
+        "ec/challenge/migration",
+        "ec/challenge/api-implementation",
+        "ec/challenge/component",
+      ],
     },
   ],
 };
