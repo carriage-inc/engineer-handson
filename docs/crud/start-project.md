@@ -312,6 +312,7 @@ mysql:
     MYSQL_ALLOW_EMPTY_PASSWORD: 1
   volumes:
     - "sail-mysql:/var/lib/mysql"
+    // highlight-next-line
     - "./docker/mysql/my.cnf:/etc/my.cnf" # 追加
     - "./vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh"
 

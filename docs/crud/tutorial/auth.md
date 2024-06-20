@@ -61,12 +61,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// highlight-start
 Route::get('/tasks', Task\IndexController::class)->name('tasks.index');
 Route::get('/tasks/create', Task\Create\IndexController::class)->name('tasks.create');
 Route::post('/tasks/create', Task\Create\StoreController::class)->name('tasks.store');
 Route::get('/tasks/{id}/edit', Task\Edit\IndexController::class)->name('tasks.edit'); // 編集画面表示
 Route::put('/tasks/{id}', Task\Edit\UpdateController::class)->name('tasks.update'); // 更新処理
 Route::delete('/tasks/{id}', Task\Delete\DestroyController::class)->name('tasks.destroy');
+// highlight-end
 
 require __DIR__ . '/auth.php';
 ```
@@ -80,10 +82,12 @@ require __DIR__ . '/auth.php';
 @tailwind components;
 @tailwind utilities;
 
+// highlight-start
 .container {
   margin: 50px auto;
   max-width: 680px;
 }
+// highlight-end
 ```
 
 インストールがうまくいけば、http://localhost のヘッダーにログインと登録のリンクが表示されるようになるはずです。
@@ -225,6 +229,7 @@ public function handle(Request $request, Closure $next): Response
 ```php title="bootstrap/app.php"
 // 省略
 
+// highlight-next-line
 use App\Http\Middleware\SampleMiddleware; // 追加
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -234,9 +239,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        // highlight-start
         $middleware->alias([
             'sample' => SampleMiddleware::class,
         ]);
+        // highlight-end
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
@@ -248,6 +255,7 @@ return Application::configure(basePath: dirname(__DIR__))
 ```php title="routes/web.php"
 Route::get('/', function () {
     return view('welcome');
+    // highlight-next-line
 })->middleware('sample');
 ```
 
@@ -372,6 +380,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // highlight-start
     // middleware('auth')->group内に移動
     Route::get('/tasks', Task\IndexController::class)->name('tasks.index');
     Route::get('/tasks/create', Task\Create\IndexController::class)->name('tasks.create');
@@ -379,6 +388,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/tasks/{id}/edit', Task\Edit\IndexController::class)->name('tasks.edit'); // 編集画面表示
     Route::put('/tasks/{id}', Task\Edit\UpdateController::class)->name('tasks.update'); // 更新処理
     Route::delete('/tasks/{id}', Task\Delete\DestroyController::class)->name('tasks.destroy');
+    // highlight-end
 });
 ```
 
@@ -397,8 +407,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'sample' => SampleMiddleware::class,
         ]);
+        // highlight-start
         $middleware->redirectGuestsTo('/login');
         $middleware->redirectUsersTo('/tasks');
+        // highlight-end
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
@@ -418,11 +430,13 @@ return Application::configure(basePath: dirname(__DIR__))
 
     <a href="{{ route('tasks.create') }}">新規作成</a>
 
+    // highlight-start
     // ログアウトボタンを追加
     <form method="post" action="{{ route('logout') }}">
         @csrf
         <button type="submit">ログアウト</button>
     </form>
+    // highlight-end
 
 // 省略
 ```
@@ -444,17 +458,21 @@ sail artisan make:migration add_user_id_to_tasks_table --table=tasks
 ```php title="database/migrations/yyyy_mm_dd_000000_add_user_id_to_tasks_table.php"
 public function up(): void
 {
+    // highlight-start
     Schema::table('tasks', function (Blueprint $table) {
         $table->foreignId('user_id')->constrained()->cascadeOnDelete();
     });
+    // highlight-end
 }
 
 public function down(): void
 {
+    // highlight-start
     Schema::table('tasks', function (Blueprint $table) {
         $table->dropForeign(['user_id']);
         $table->dropColumn('user_id');
     });
+    // highlight-end
 }
 ```
 
@@ -476,10 +494,12 @@ class Task extends Model
 {
     use HasFactory;
 
+    // highlight-start
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+    // highlight-end
 }
 ```
 
@@ -490,10 +510,12 @@ class User extends Authenticatable
 
     // 省略
 
+    // highlight-start
     public function tasks()
     {
         return $this->hasMany(Task::class);
     }
+    // highlight-end
 }
 ```
 
@@ -511,16 +533,19 @@ hasMany メソッドは、`User`モデルが複数の`Task`モデルを持って
 `Task/Create/StoreController`クラスの`__invoke`メソッドを以下のように修正してください。
 
 ```php title="app/Http/Controllers/Task/Create/StoreController.php"
+// highlight-next-line
 use Illuminate\Support\Facades\Auth; // 追加
 
 public function __invoke(TaskCreateRequest $request)
 {
+    // highlight-start
     $task = new Task;
     $task->title = $request->input('title');
     $task->user_id = Auth::id(); // ログインしているユーザーの ID を保存
     $task->save();
 
     return redirect()->route('tasks.index');
+    // highlight-end
 }
 ```
 
@@ -540,9 +565,11 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
+        // highlight-start
         $tasks = Task::where('user_id', Auth::id())->get(); // ログインしているユーザーのタスクだけを取得
 
         return view('tasks.index')->with('tasks', $tasks);
+        // highlight-end
     }
 }
 ```
@@ -558,6 +585,7 @@ class IndexController extends Controller
 ```php title="database/seeders/DatabaseSeeder.php"
 public function run()
 {
+    // highlight-next-line
     // $this->call(TaskSeeder::class);
 }
 ```
@@ -588,6 +616,7 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request, int $id)
     {
+        // highlight-start
         $task = Task::where('user_id', Auth::id())->find($id); // ログインしているユーザーのタスクだけを取得
 
         if ($task === null) {
@@ -595,6 +624,7 @@ class IndexController extends Controller
         }
 
         return view('tasks.edit')->with('task', $task);
+        // highlight-end
     }
 }
 ```
