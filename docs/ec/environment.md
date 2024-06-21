@@ -6,7 +6,7 @@ description: ECサイト開発の環境構築手順
 
 EC サイトを実装するための環境構築手順を説明します。
 
-## Node.js のインストール
+## Node.js
 
 Node.js は JavaScript の実行環境です。Next.js は Node.js 上で動作するため、Node.js をインストールします。
 
@@ -52,7 +52,7 @@ nvm ls
 nvm use 20
 ```
 
-## Yarn のインストール
+## Yarn
 
 Yarn は JavaScript のパッケージマネージャです。npm と同様の機能を持っていますが、パフォーマンスが向上しているため、Yarn を使うことが推奨されています。
 
@@ -65,3 +65,17 @@ npm install -g yarn
 ```
 
 以上で Next.js の開発環境を構築するための Node.js と Yarn のインストールが完了しました。
+
+## VSCode 拡張機能のインストール
+
+### Tailwind CSS IntelliSense
+
+Tailwind CSS のクラス名を自動補完するためのプラグインです。Tailwind CSS については、[スタイリングと SEO](tutorial/stylying-and-seo.md#tailwind)の章で説明しますが、このプラグインを導入することで、Tailwind CSS のクラス名を自動補完することができます。
+
+VSCode の拡張機能から `Tailwind CSS IntelliSense` をインストールします。
+
+![alt text](img/tailwindCssIntelliSense.png)
+
+次のように、Tailwind CSS のクラス名を入力すると、自動補完が表示されるようになります。
+
+![alt text](img/tailwindAutoComplete.png)
