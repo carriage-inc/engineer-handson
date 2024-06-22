@@ -131,6 +131,7 @@ const sidebars: SidebarsConfig = {
         "ec/tutorial/routing-and-navigation",
         "ec/tutorial/server-and-cliend-components",
         "ec/tutorial/dynamic-routing-and-route-groups",
+        "ec/tutorial/data-fetching",
         "ec/tutorial/segment-rule-files",
         "ec/tutorial/suspense-and-streaming",
         "ec/tutorial/auth",
