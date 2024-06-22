@@ -2,30 +2,54 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://carriage-inc.github.io/engineer-handson/blog</id>
     <title>マナテク Blog</title>
-    <updated>2024-06-15T10:00:00.000Z</updated>
+    <updated>2024-06-23T10:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://carriage-inc.github.io/engineer-handson/blog"/>
     <subtitle>マナテク Blog</subtitle>
     <icon>https://carriage-inc.github.io/engineer-handson/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[データベースとは 〜ER図の定義から、SQL操作について説明〜]]></title>
-        <id>https://carriage-inc.github.io/engineer-handson/blog/about-database</id>
-        <link href="https://carriage-inc.github.io/engineer-handson/blog/about-database"/>
-        <updated>2024-06-15T10:00:00.000Z</updated>
-        <summary type="html"><![CDATA[データベースに関する説明]]></summary>
-        <content type="html"><![CDATA[<p>データベースに関する説明</p>]]></content>
-        <author>
-            <name>ユースケ</name>
-        </author>
-        <category label="Database" term="Database"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【POST?GET?】HTTPメソッドについて解説]]></title>
+        <title type="html"><![CDATA[【POST or GET?】HTTPメソッドについて解説]]></title>
         <id>https://carriage-inc.github.io/engineer-handson/blog/http-method</id>
         <link href="https://carriage-inc.github.io/engineer-handson/blog/http-method"/>
-        <updated>2024-06-15T10:00:00.000Z</updated>
-        <summary type="html"><![CDATA[データベースに関する説明]]></summary>
-        <content type="html"><![CDATA[<p>データベースに関する説明</p>]]></content>
+        <updated>2024-06-23T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[はじめに]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="はじめに">はじめに<a class="hash-link" aria-label="��はじめに への直接リンク" title="はじめに への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">​</a></h2>
+<p>この記事では、HTTP メソッドについて解説します。</p>
+<p>HTTP メソッドは、クライアントがサーバーに対して行いたい処理を指定するためのものです。代表的な HTTP メソッドには、GET、POST、PUT、DELETE などがあります。それぞれの HTTP メソッドの特徴や使い分けについて説明します。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="リソースについて">リソースについて<a class="hash-link" aria-label="リソースについて への直接リンク" title="リソースについて への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">​</a></h2>
+<p>HTTP では、リソースという単位で情報を扱います。リソースは、URI で識別されます。リソースに対して行いたい処理を HTTP メソッドで指定してリクエストを送信します。</p>
+<p>例えば、以下のようなものはリソースとして捉えます。</p>
+<ul>
+<li>商品情報</li>
+<li>ユーザー情報</li>
+<li>購入情報</li>
+</ul>
+<p>これらのリソースに対して、GET メソッドで情報を取得したり、POST メソッドで新しい情報を登録したりすることができます。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="各メソッドの説明">各メソッドの説明<a class="hash-link" aria-label="各メソッドの説明 への直接リンク" title="各メソッドの説明 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#%E5%90%84%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%AE%E8%AA%AC%E6%98%8E">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="get-メソッド">GET メソッド<a class="hash-link" aria-label="GET メソッド への直接リンク" title="GET メソッド への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#get-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89">​</a></h3>
+<p>GET メソッドは、リソースの取得を行うためのメソッドです。ブラウザで URL を入力してページを表示するときにも GET メソッドが使用されます。</p>
+<p>リソースの ID などや検索パラメータなどを指定したいときは、URL のクエリパラメータに指定します。例えば、<code>https://example.com/items?id=1</code> のような URL で、ID が 1 の商品情報を取得するという意味になります。</p>
+<p>GET メソッドは、POST メソッドと違って、リクエストボディにデータを含めることは想定されていないことに注意してください。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="post-メソッド">POST メソッド<a class="hash-link" aria-label="POST メソッド への直接リンク" title="POST メソッド への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#post-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89">​</a></h3>
+<p>POST メソッドは、リソースの新規作成や更新を行うためのメソッドです。フォームからデータを送信するときにも POST メソッドが使用されます。</p>
+<p>POST メソッドは、リクエストボディにデータを含めることができます。例えば、ユーザー情報を登録するときは、リクエストボディにユーザー名やメールアドレスなどの情報を含めて送信します。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="put-メソッド">PUT メソッド<a class="hash-link" aria-label="PUT メソッド への直接リンク" title="PUT メソッド への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#put-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89">​</a></h3>
+<p>PUT メソッドは、リソースの更新を行うためのメソッドです。POST メソッドと同様にリクエストボディにデータを含めて送信しますが、PUT メソッドはリソースの更新を行うことを明示的に示すために使用されます。</p>
+<p>また PUT メソッドは冪等であるように設計されています。冪等とは、同じリクエストを複数回送信しても、リソースの更新の結果が変わらないことを指します。</p>
+<p>そのため、POST メソッドは新規作成、PUT メソッドは更新という使い分けがされることが多いです。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="delete-メソッド">DELETE メソッド<a class="hash-link" aria-label="DELETE メソッド への直接リンク" title="DELETE メソッド への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#delete-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89">​</a></h3>
+<p>DELETE メソッドは、リソースの削除を行うためのメソッドです。リソースを削除するときに使用します。</p>
+<p>DELETE メソッドは、リクエストボディにデータを含めることは想定されていないことに注意してください。リソースの ID などは GET メソッドと同様に URL のパスに含めて送信します。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="実例を見てみよう">実例を見てみよう<a class="hash-link" aria-label="実例を見てみよう への直接リンク" title="実例を見てみよう への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#%E5%AE%9F%E4%BE%8B%E3%82%92%E8%A6%8B%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86">​</a></h2>
+<p>以下は、ブログアプリケーションの URL 設計例です。</p>
+<ul>
+<li>記事一覧の取得: <code>GET /articles</code></li>
+<li>記事詳細の取得: <code>GET /articles/:id</code></li>
+<li>記事の新規作成: <code>POST /articles</code></li>
+<li>記事の更新: <code>PUT /articles/:id</code></li>
+<li>記事の削除: <code>DELETE /articles/:id</code></li>
+</ul>
+<p>このように、HTTP メソッドを使い分けることで、リソースに対して適切な処理を行うことができます。</p>]]></content>
         <author>
             <name>ユースケ</name>
         </author>
