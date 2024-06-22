@@ -70,7 +70,7 @@ npm install -g yarn
 
 ### Tailwind CSS IntelliSense
 
-Tailwind CSS のクラス名を自動補完するためのプラグインです。Tailwind CSS については、[スタイリングと SEO](tutorial/stylying-and-seo.md#tailwind)の章で説明しますが、このプラグインを導入することで、Tailwind CSS のクラス名を自動補完することができます。
+Tailwind CSS のクラス名を自動補完するためのプラグインです。Tailwind CSS については、[スタイリングと SEO](tutorial/stylying.md#tailwind)の章で説明しますが、このプラグインを導入することで、Tailwind CSS のクラス名を自動補完することができます。
 
 VSCode の拡張機能から `Tailwind CSS IntelliSense` をインストールします。
 
