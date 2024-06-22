@@ -22,12 +22,12 @@ description: Dynamic Route Segment と Route Groupsの説明
 ```tsx title="src/app/profile/[id]/page.tsx"
 type Props = {
   params: {
-    id: Number;
+    id: string;
   };
 };
 
 export default function Profile({ params }: Props) {
-  return <h1>プロフィールページ: {params.id.toString()}</h1>;
+  return <h1>プロフィールページ: {params.id}</h1>;
 }
 ```
 
