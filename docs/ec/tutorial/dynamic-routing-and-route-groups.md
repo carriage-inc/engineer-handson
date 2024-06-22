@@ -5,6 +5,10 @@ description: Dynamic Route Segment と Route Groupsの説明
 
 ここからいくつかの`Segment`のパターンを紹介します。
 
+:::note
+`Segment`って何だったっけ？という方は、[こちら](./routing-and-navigation.md#segment)
+:::
+
 ### Dynamic Segment
 
 `Dynamic Segment`は、URL の一部が動的に変わる場合に使います。例えば、`/profile/:id`のように、`:id`の部分によって表示する内容を変える場合などです。
@@ -65,6 +69,27 @@ src/app
     ├── layout.tsx  // ログイン後のレイアウト
     └── home
         └── page.tsx
+```
+
+### Private Folder とコロケーション
+
+`Private Folder`機能を使うと、ルーティングに影響を与えないファイルを配置できます。例えば、`Profile`にしか使わない UI コンポーネントを配置する場合、`profile`ディレクトリの中に`components`ディレクトリを作成し、その中にファイルを格納できます。
+
+このように、関連するファイルをまとめて配置することを、`コロケーション`といいます。
+
+#### Private Folder
+
+もし、`profile/components`の下に間違って`page.tsx`を配置してしまった場合、`page.tsx`はルーティングの対象になってしまいます。そこで、フォルダ名の前に`_`をつけることで、`Private Folder`として扱うことができます。
+
+`profile/_components`のようにフォルダ名を変更することで、`_components`ディレクトリの中に配置されたファイルはルーティングの対象にならなくなります。
+
+```
+src/app
+└── profile
+    ├── _components
+    │   └── page.tsx  // ルーティングの対象外
+    └── components
+        └── page.tsx  // profile/components というURLでアクセスできてしまう
 ```
 
 ### その他の Segment パターン
