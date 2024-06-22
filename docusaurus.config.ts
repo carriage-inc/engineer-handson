@@ -69,7 +69,7 @@ const config: Config = {
           position: "left",
           label: "ECサイト",
         },
-        // { to: "/blog", label: "参考記事", position: "left" },
+        { to: "/blog", label: "参考記事", position: "left" },
       ],
     },
     footer: {
@@ -101,15 +101,15 @@ const config: Config = {
             },
           ],
         },
-        // {
-        //   title: "More",
-        //   items: [
-        //     {
-        //       label: "参考記事",
-        //       to: "/blog",
-        //     },
-        //   ],
-        // },
+        {
+          title: "More",
+          items: [
+            {
+              label: "参考記事",
+              to: "/blog",
+            },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Carriage, Inc.`,
     },
