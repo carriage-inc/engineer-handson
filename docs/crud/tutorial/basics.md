@@ -530,4 +530,6 @@ Route::post('/sample', SampleController::class);
 
 :::info
 POST や PUT メソッドの場合は、フォーム自体を表示するルート（GET /form）と、フォームの送信先のルート（POST /sample）が必要になることを覚えておきましょう。
+
+GET や POST などの、HTTP メソッドについての説明は、[こちらの記事](/blog/http-method) を参照してください。
 :::
