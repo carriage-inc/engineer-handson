@@ -137,7 +137,7 @@ const sidebars: SidebarsConfig = {
       ],
     },
     "ec/start-project",
-    "ec/laravel-clean-architecture",
+    "ec/laravel-api-preparation",
     {
       type: "category",
       label: "課題",
