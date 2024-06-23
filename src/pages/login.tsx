@@ -21,6 +21,7 @@ const Login: React.FC = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      window.location.href = siteConfig.baseUrl;
     } catch (error) {
       let errorMessage = "エラーが発生しました。";
 
@@ -76,7 +77,7 @@ const Login: React.FC = () => {
         </button>
       </form>
 
-      <Link to="/engineer-handson" className={styles.goback}>
+      <Link to={siteConfig.baseUrl} className={styles.goback}>
         ← ホームに戻る
       </Link>
     </div>
