@@ -1,0 +1,25 @@
+{
+  "index_name": "manatech",
+  "start_urls": [
+    {
+      "url": "https://carriage-inc.github.io/engineer-handson/"
+    }
+  ],
+  "stop_urls": ["https://carriage-inc.github.io/engineer-handson/blog/tags/"],
+  "selectors": {
+    "default": {
+      "lvl0": "article .markdown h1",
+      "lvl1": "article .markdown h2",
+      "lvl2": "article .markdown h3",
+      "lvl3": "article .markdown h4",
+      "lvl4": "article .markdown h5",
+      "lvl5": "article .markdown h6",
+      "title": "title",
+      "description": {
+        "selector": "//meta[@name='description']/@content",
+        "type": "xpath",
+        "global": true
+      }
+    }
+  }
+}
