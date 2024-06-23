@@ -138,14 +138,6 @@ const config: Config = {
     mermaid: true,
   },
   themes: ["@docusaurus/theme-mermaid"],
-  plugins: [
-    [
-      require.resolve("docusaurus-lunr-search"),
-      {
-        languages: ["multi"],
-      },
-    ],
-  ],
 };
 
 export default config;
