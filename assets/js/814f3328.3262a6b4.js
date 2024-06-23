@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkhandson=self.webpackChunkhandson||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"\u3010POST or GET?\u3011HTTP\u30e1\u30bd\u30c3\u30c9\u306b\u3064\u3044\u3066\u89e3\u8aac","permalink":"/engineer-handson/blog/http-method","unlisted":false}]}')}}]);
