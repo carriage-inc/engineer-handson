@@ -24,6 +24,21 @@ const config: Config = {
     locales: ["ja"],
   },
 
+  customFields: {
+    guestPages: [
+      "/",
+      "/login",
+      "/docs/lp/intro",
+      "/docs/crud/intro",
+      "/docs/ec/intro",
+      "/docs/lp/environment",
+      "/docs/crud/environment",
+      "/docs/ec/environment",
+      "/blog",
+      "/blog/*",
+    ],
+  },
+
   presets: [
     [
       "classic",
