@@ -23,6 +23,7 @@ export const useAuthGuard = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       const pathname = location.pathname.replace(baseUrl, "/");
       if (!user && !isGuestPage(pathname)) {
+        localStorage.setItem("redirect", location.pathname);
         window.location.href = "/engineer-handson/login";
       }
     });
