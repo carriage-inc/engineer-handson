@@ -412,7 +412,7 @@ class TaskSeeder extends Seeder
 }
 ```
 
-`Task::factory(10)->create();` で、`TaskFactory` を使って 10 件のデーズを作成しています。
+`Task::factory(10)->create();` で、`TaskFactory` を使って 10 件のデータを作成しています。
 
 それでは、シーディングを実行してみましょう。
 
