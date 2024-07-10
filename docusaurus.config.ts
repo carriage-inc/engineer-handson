@@ -57,6 +57,13 @@ const config: Config = {
   ],
 
   themeConfig: {
+    metadata: [
+      { name: "keywords", content: "プログラミング, Laravel, Next.js" },
+      {
+        name: "google-site-verification",
+        content: "mie-TsTZQR_FNBxpjxfAD8COsMhVcLUbvLYbBD6tFeY",
+      },
+    ],
     image: "img/service-summary.png",
     navbar: {
       title: "",
