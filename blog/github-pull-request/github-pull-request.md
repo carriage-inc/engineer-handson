@@ -35,6 +35,8 @@ VSCode の Source Control タブから変更をステージングし、適当な
 
 VSCode の Source Control タブから、`Publish branch` をクリックしてブランチをプッシュします。
 
+![alt text](publish-branch.png)
+
 ## プルリクエストの作成
 
 ここからは、GitHub の Web ページで操作を行います。
