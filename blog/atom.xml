@@ -2,19 +2,114 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://carriage-inc.github.io/engineer-handson/blog</id>
     <title>マナテク Blog</title>
-    <updated>2024-06-23T10:00:00.000Z</updated>
+    <updated>2024-07-11T12:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://carriage-inc.github.io/engineer-handson/blog"/>
     <subtitle>マナテク Blog</subtitle>
     <icon>https://carriage-inc.github.io/engineer-handson/img/favicon.ico</icon>
     <entry>
+        <title type="html"><![CDATA[【GitHub】ブランチの作成からプルリクエストまでの手順]]></title>
+        <id>https://carriage-inc.github.io/engineer-handson/blog/github-pull-request</id>
+        <link href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request"/>
+        <updated>2024-07-11T12:00:00.000Z</updated>
+        <summary type="html"><![CDATA[新しく Git で管理を始めた時は main ブランチしかありませんが、今後機能追加を行なっていく際には、機能の単位で新しくブランチを作成して作業を行います。そして、作業が完了したら、main ブランチに向けてプルリクエストを作成し、レビューを経て main ブランチにマージします。]]></summary>
+        <content type="html"><![CDATA[<p>新しく Git で管理を始めた時は main ブランチしかありませんが、今後機能追加を行なっていく際には、機能の単位で新しくブランチを作成して作業を行います。そして、作業が完了したら、main ブランチに向けてプルリクエストを作成し、レビューを経て main ブランチにマージします。</p>
+<p>この記事では、ブランチを新しく作成して、プルリクエストを作成・マージする流れを解説します。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ブランチの作成">ブランチの作成<a class="hash-link" aria-label="ブランチの作成 への直接リンク" title="ブランチの作成 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E4%BD%9C%E6%88%90">​</a></h2>
+<p>まずは、新しくブランチを作成します。ここでは、<code>feature/sample-feature</code> という名前で作成しますが、実際は作業内容が分かりやすいように命名すると良いでしょう。
+VSCode でターミナルを開いて以下のコマンドを実行するか、左下の「main」をクリックしてブランチ名を入力して新しいブランチを作成します。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git checkout -b feature/sample-feature</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ファイルの変更">ファイルの変更<a class="hash-link" aria-label="ファイルの変更 への直接リンク" title="ファイルの変更 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%A4%89%E6%9B%B4">​</a></h2>
+<p>適当なファイルを開いて変更を加えます。ここでは、<code>README.md</code> を開いて変更を加えるとします。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">echo "Hello, World!" &gt;&gt; README.md</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>VSCode の Source Control タブから変更をステージングし、適当なメッセージを入力してコミットします。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ブランチをプッシュ">ブランチをプッシュ<a class="hash-link" aria-label="ブランチをプッシュ への直接リンク" title="ブランチをプッシュ への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5">​</a></h2>
+<p>作成したブランチをリモートリポジトリにプッシュします。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git push origin feature/sample-feature</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>]]></content>
+        <author>
+            <name>ユースケ</name>
+        </author>
+        <category label="Git" term="Git"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【GitHub】アカウントの作成からリポジトリ作成までの手順]]></title>
+        <id>https://carriage-inc.github.io/engineer-handson/blog/initialize-github</id>
+        <link href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github"/>
+        <updated>2024-07-11T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[GitHub は、Git リポジトリをホスティングするためのサービスです。GitHub を使うことで、複数の人が協力してプロジェクトを進めることができます。]]></summary>
+        <content type="html"><![CDATA[<p>GitHub は、Git リポジトリをホスティングするためのサービスです。GitHub を使うことで、複数の人が協力してプロジェクトを進めることができます。</p>
+<p>この記事では、Git の基本的な使い方は理解している前提で、GitHub でのリポジトリの作成やコードの管理方法について解説します。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="github-アカウントの作成">GitHub アカウントの作成<a class="hash-link" aria-label="GitHub アカウントの作成 への直接リンク" title="GitHub アカウントの作成 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github#github-%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90">​</a></h2>
+<p>まずは、GitHub アカウントを作成しましょう。<a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub のホームページ</a>にアクセスして、アカウントを作成します。</p>
+<p>Sign up ボタンをクリックして、画面の流れに従ってアカウントを作成してください。</p>
+<p>途中で料金プランを選択する画面が表示されますが、無料プランで問題ありません。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ssh-接続の設定">SSH 接続の設定<a class="hash-link" aria-label="SSH 接続の設定 への直接リンク" title="SSH 接続の設定 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github#ssh-%E6%8E%A5%E7%B6%9A%E3%81%AE%E8%A8%AD%E5%AE%9A">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ssh-キーの登録">SSH キーの登録<a class="hash-link" aria-label="SSH キーの登録 への直接リンク" title="SSH キーの登録 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github#ssh-%E3%82%AD%E3%83%BC%E3%81%AE%E7%99%BB%E9%8C%B2">​</a></h3>
+<p>GitHub にコードをプッシュしたり、プルしたりするためには、SSH キーを GitHub に登録する必要があります。</p>
+<p>まずは、SSH キーをローカルで生成します。以下のコマンドを実行して、SSH キーを生成します。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cd ~/.ssh</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">ssh-keygen -t rsa -f github</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>実行すると色々聞かれますが、そのまま Enter キーを押して進めてください。実行が完了すると、<code>github</code> と <code>github.pub</code> というファイルが生成されます。<code>github.pub</code>が公開鍵なので、このファイルを GitHub に登録していきます。</p>
+<p>GitHub に戻って、 右上のアバターアイコンをクリックし、Settings を選択します。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/settings-1acf5295161678a0885b7018e77f183e.png" width="853" height="708" class="img_ev3q"></p>
+<p>左メニューの SSH and GPG keys を選択し、New SSH key ボタンをクリックします。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/new-ssh-key-54182321ae8ded3a91d2a20edb171049.png" width="1671" height="923" class="img_ev3q"></p>
+<p>登録画面になるので、Title に任意の名前を入力し、Key に<code>github.pub</code> ファイルの中身をコピーして Add SSH key ボタンをクリックしてください。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/add-new-ssh-key-94b9c1fdd5a32ba30bac52aa946c8cca.png" width="1574" height="893" class="img_ev3q"></p>
+<p>これで SSH キーの登録が完了しました。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="接続確認">接続確認<a class="hash-link" aria-label="接続確認 への直接リンク" title="接続確認 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github#%E6%8E%A5%E7%B6%9A%E7%A2%BA%E8%AA%8D">​</a></h3>
+<p>続いて、SSH 接続を確認していきます。
+まずは SSH Config ファイルの設定を行います。</p>
+<p><code>~/.ssh/config</code> ファイルを作成し、以下の内容を記述します。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Host github github.com</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  HostName github.com</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  IdentityFile ~/.ssh/github</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  User git</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>そして、以下のコマンドを実行して、SSH 接続ができるか確認します。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">ssh -T github</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>以下のようなメッセージが表示されれば、SSH 接続が成功しています。</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Hi {username}! You've successfully authenticated, but GitHub does not provide shell access.</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="リポジトリの作成">リポジトリの作成<a class="hash-link" aria-label="リポジトリの作成 への直接リンク" title="リポジトリの作成 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github#%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E4%BD%9C%E6%88%90">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="空のリポジトリを作成する">空のリポジトリを作成する<a class="hash-link" aria-label="空のリポジトリを作成する への直接リンク" title="空のリポジトリを作成する への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github#%E7%A9%BA%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">​</a></h3>
+<p>GitHub でリポジトリを作成してみましょう。</p>
+<p>GitHub にログインすると、ダッシュボードが表示されるので、左メニューの「Create repository」をクリックしてください。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/dashboard-cf16f3f0f770758cacca1d6ce25bcfad.png" width="1673" height="967" class="img_ev3q"></p>
+<p>すると、以下のような画面が表示されるので、Repository name にリポジトリ名を入力してください。リポジトリは公開範囲の設定が可能で、Public にすると誰でも閲覧できるリポジトリになり、Private にすると、自分以外は閲覧できないリポジトリになります。</p>
+<p>それ以外の設定はデフォルトのままで問題ありません。</p>
+<p>入力が完了したら、Create repository ボタンをクリックしてください。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/create-repository-deace42df6ccdbe8859ac6d1685e6dbb.png" width="1679" height="972" class="img_ev3q"></p>
+<p>リポジトリの作成方法は、大きく分けて以下の 2 種類あります。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ローカルの-git-リポジトリと連携する">ローカルの Git リポジトリと連携する<a class="hash-link" aria-label="ローカルの Git リポジトリと連携する への直接リンク" title="ローカルの Git リポジトリと連携する への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE-git-%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%A8%E9%80%A3%E6%90%BA%E3%81%99%E3%82%8B">​</a></h3>
+<p>ローカルの Git リポジトリを GitHub のリポジトリと連携させる方法は、以下の 2 種類があります。</p>
+<ol>
+<li>GitHub のリポジトリをローカルにクローンする方法</li>
+<li>ローカルと GitHub のリポジトリを紐づけて利用する方法</li>
+</ol>
+<p>Laravel や Next.js などのフレームワークでは、プロジェクトを作る際にローカルにプロジェクトのフォルダが作成されるので、2 番目の方法を使うことが多いです。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-github-のリポジトリをローカルにクローンする方法">1. GitHub のリポジトリをローカルにクローンする方法<a class="hash-link" aria-label="1. GitHub のリポジトリをローカルにクローンする方法 への直接リンク" title="1. GitHub のリポジトリをローカルにクローンする方法 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github#1-github-%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AB%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">​</a></h4>
+<p>git コマンドでローカルにリポジトリをクローンする必要があるので、画像のように SSH ボタンをクリックしてから、URL をコピーしてください。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/copy-ssh-url-320cd7e0e68abb72c439f580cd8c3bd9.png" width="1657" height="958" class="img_ev3q"></p>
+<p>そして、以下のコマンドを実行して、リポジトリをクローンします。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git clone {git@で始まるリポジトリの URL}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>そして、クローンしたリポジトリを VSCode などで開いて開発を行い、コミットしてプッシュすることで、GitHub にコードをアップロードすることができます。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-ローカルと-github-のリポジトリを紐づけて利用する方法">2. ローカルと GitHub のリポジトリを紐づけて利用する方法<a class="hash-link" aria-label="2. ローカルと GitHub のリポジトリを紐づけて利用する方法 への直接リンク" title="2. ローカルと GitHub のリポジトリを紐づけて利用する方法 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/initialize-github#2-%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A8-github-%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E7%B4%90%E3%81%A5%E3%81%91%E3%81%A6%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">​</a></h4>
+<p>まずはローカルのリポジトリが Git 管理されている必要があります。VSCode でプロジェクトを開いて、左メニューの Souce Control を開いたときに、Initialize Repository のボタンが表示されている場合、まだ Git 管理されていない状態なので、ボタンをクリックして Git 管理を開始します。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/initialize-repository-174463174ed447590c9af70edc3c3922.png" width="350" height="402" class="img_ev3q"></p>
+<p>そして、すべてのファイルをステージングして、Initial commit というメッセージでコミットします。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/staging-747ae123cb7db271a43050b2e16f7223.png" width="348" height="353" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/commit-68bf25a4c55aa0224158367815b599f7.png" width="344" height="298" class="img_ev3q"></p>
+<p>次に、GitHub の「...or push an existing repository from the command line」のコマンドをコピーし、VSCode でターミナルを開いて、コマンドを実行します。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/copy-existing-repository-command-a42b5909303958d9c7d2e8ca62e2aa03.png" width="1656" height="962" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/vscode-terminal-ff5e6b9ef52b21f64fce2b3bfeaac639.png" width="1103" height="493" class="img_ev3q"></p>
+<p>これで、GitHub 上にローカルのファイルの内容がアップロードされるはずです。この後は、VSCode でファイルを編集してコミットし、プッシュすることで、GitHub コードの内容を反映させることができます。</p>]]></content>
+        <author>
+            <name>ユースケ</name>
+        </author>
+        <category label="Git" term="Git"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[【POST or GET?】HTTPメソッドについて解説]]></title>
         <id>https://carriage-inc.github.io/engineer-handson/blog/http-method</id>
         <link href="https://carriage-inc.github.io/engineer-handson/blog/http-method"/>
         <updated>2024-06-23T10:00:00.000Z</updated>
-        <summary type="html"><![CDATA[はじめに]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="はじめに">はじめに<a class="hash-link" aria-label="はじめに への直接リンク" title="はじめに への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">​</a></h2>
-<p>この記事では、HTTP メソッドについて解説します。</p>
+        <summary type="html"><![CDATA[この記事では、HTTP メソッドについて解説します。]]></summary>
+        <content type="html"><![CDATA[<p>この記事では、HTTP メソッドについて解説します。</p>
 <p>HTTP メソッドは、クライアントがサーバーに対して行いたい処理を指定するためのものです。代表的な HTTP メソッドには、GET、POST、PUT、DELETE などがあります。それぞれの HTTP メソッドの特徴や使い分けについて説明します。</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="リソースについて">リソースについて<a class="hash-link" aria-label="リソースについて への直接リンク" title="リソースについて への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">​</a></h2>
 <p>HTTP では、リソースという単位で情報を扱います。リソースは、URI で識別されます。リソースに対して行いたい処理を HTTP メソッドで指定してリクエストを送信します。</p>
@@ -25,7 +120,7 @@
 <li>購入情報</li>
 </ul>
 <p>これらのリソースに対して、GET メソッドで情報を取得したり、POST メソッドで新しい情報を登録したりすることができます。</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="各メソッドの説明">各メソッドの説明<a class="hash-link" aria-label="各メソッドの説明 への直接リンク" title="各メソッドの説明 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#%E5%90%84%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%AE%E8%AA%AC%E6%98%8E">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="各メソッドの説明">各メソッドの説明<a class="hash-link" aria-label="各メソッドの説明 への直接リンク" title="各メソッドの説明 への直接��リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#%E5%90%84%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%AE%E8%AA%AC%E6%98%8E">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="get-メソッド">GET メソッド<a class="hash-link" aria-label="GET メソッド への直接リンク" title="GET メソッド への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/http-method#get-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89">​</a></h3>
 <p>GET メソッドは、リソースの取得を行うためのメソッドです。ブラウザで URL を入力してページを表示するときにも GET メソッドが使用されます。</p>
 <p>リソースの ID などや検索パラメータなどを指定したいときは、URL のクエリパラメータに指定します。例えば、<code>https://example.com/items?id=1</code> のような URL で、ID が 1 の商品情報を取得するという意味になります。</p>
@@ -53,6 +148,6 @@
         <author>
             <name>ユースケ</name>
         </author>
-        <category label="web" term="web"/>
+        <category label="Web" term="Web"/>
     </entry>
 </feed>
