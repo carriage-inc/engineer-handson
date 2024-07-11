@@ -27,6 +27,7 @@ VSCode でターミナルを開いて以下のコマンドを実行するか、�
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="ブランチのプッシュ">ブランチのプッシュ<a class="hash-link" aria-label="ブランチのプッシュ への直接リンク" title="ブランチのプッシュ への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5">​</a></h2>
 <p>今の状態だと GitHub 側には新しく作られたブランチが存在していないため、ローカルからブランチをプッシュする必要があります。</p>
 <p>VSCode の Source Control タブから、<code>Publish branch</code> をクリックしてブランチをプッシュします。</p>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/publish-branch-8c32f32ee2882749849ddd238232bbc1.png" width="361" height="331" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="プルリクエストの作成">プルリクエストの作成<a class="hash-link" aria-label="プルリクエストの作成 への直接リンク" title="プルリクエストの作成 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90">​</a></h2>
 <p>ここからは、GitHub の Web ページで操作を行います。</p>
 <ol>
