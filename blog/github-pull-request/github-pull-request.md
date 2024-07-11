@@ -29,10 +29,36 @@ echo "Hello, World!" >> README.md
 
 VSCode の Source Control タブから変更をステージングし、適当なメッセージを入力してコミットします。
 
-## ブランチをプッシュ
+## ブランチのプッシュ
 
-作成したブランチをリモートリポジトリにプッシュします。
+今の状態だと GitHub 側には新しく作られたブランチが存在していないため、ローカルからブランチをプッシュする必要があります。
 
-```bash
-git push origin feature/sample-feature
-```
+VSCode の Source Control タブから、`Publish branch` をクリックしてブランチをプッシュします。
+
+## プルリクエストの作成
+
+ここからは、GitHub の Web ページで操作を行います。
+
+1. リポジトリのトップページにアクセスし、`Pull requests` タブをクリックします。
+
+![alt text](pr1.png)
+
+2. `New pull request` ボタンをクリックします。
+
+![alt text](pr2.png)
+
+3. `compare` の欄で、`feature/sample-feature` を選択してください。差分が表示されるので、問題なければ `Create pull request` ボタンをクリックします。
+
+![alt text](pr3.png)
+
+4. タイトルとコメントを入力して、`Create pull request` ボタンをクリックします。コメントには、変更内容やレビューしてほしいポイントなどを記載しましょう。
+
+![alt text](pr4.png)
+
+5. プルリクエストが作成されました。レビュー待ちの状態になるので、URL を共有してレビューを依頼しましょう。
+
+![alt text](pr5.png)
+
+## プルリクエストのマージ
+
+レビューが完了し、問題がなければ、プルリクエストをマージします。プルリクエストのページにアクセスし、`Merge pull request` ボタンをクリックすると、main ブランチに変更がマージされます。
