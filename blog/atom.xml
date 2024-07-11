@@ -23,9 +23,33 @@ VSCode でターミナルを開いて以下のコマンドを実行するか、�
 <p>適当なファイルを開いて変更を加えます。ここでは、<code>README.md</code> を開いて変更を加えるとします。</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">echo "Hello, World!" &gt;&gt; README.md</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <p>VSCode の Source Control タブから変更をステージングし、適当なメッセージを入力してコミットします。</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ブランチをプッシュ">ブランチをプッシュ<a class="hash-link" aria-label="ブランチをプッシュ への直接リンク" title="ブランチをプッシュ への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5">​</a></h2>
-<p>作成したブランチをリモートリポジトリにプッシュします。</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git push origin feature/sample-feature</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="クリップボードにコードをコピー" title="コピー" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>]]></content>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ブランチのプッシュ">ブランチのプッシュ<a class="hash-link" aria-label="ブランチのプッシュ への直接リンク" title="ブランチのプッシュ への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5">​</a></h2>
+<p>今の状態だと GitHub 側には新しく作られたブランチが存在していないため、ローカルからブランチをプッシュする必要があります。</p>
+<p>VSCode の Source Control タブから、<code>Publish branch</code> をクリックしてブランチをプッシュします。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="プルリクエストの作成">プルリクエストの作成<a class="hash-link" aria-label="プルリクエストの作成 への直接リンク" title="プルリクエストの作成 への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90">​</a></h2>
+<p>ここからは、GitHub の Web ページで操作を行います。</p>
+<ol>
+<li>リポジトリのトップページにアクセスし、<code>Pull requests</code> タブをクリックします。</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/pr1-b85b012b4e0f7960bd0daabba4353c90.png" width="1676" height="917" class="img_ev3q"></p>
+<ol start="2">
+<li><code>New pull request</code> ボタンをクリックします。</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/pr2-b5e5406618375a756bb70dcac4961da9.png" width="1668" height="963" class="img_ev3q"></p>
+<ol start="3">
+<li><code>compare</code> の欄で、<code>feature/sample-feature</code> を選択してください。差分が表示されるので、問題なければ <code>Create pull request</code> ボタンをクリックします。</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/pr3-9a950e289ae2f6a94b991d52dd239079.png" width="1663" height="955" class="img_ev3q"></p>
+<ol start="4">
+<li>タイトルとコメントを入力して、<code>Create pull request</code> ボタンをクリックします。コメントには、変更内容やレビューしてほしいポイントなどを記載しましょう。</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/pr4-ecd4108af2eb63e5df44514e24da1951.png" width="1666" height="955" class="img_ev3q"></p>
+<ol start="5">
+<li>プルリクエストが作成されました。レビュー待ちの状態になるので、URL を共有してレビューを依頼しましょう。</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt text" src="https://carriage-inc.github.io/engineer-handson/assets/images/pr5-294837be9e281d45218bb7f40285eeac.png" width="1666" height="958" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="プルリクエストのマージ">プルリクエストのマージ<a class="hash-link" aria-label="プルリクエストのマージ への直接リンク" title="プルリクエストのマージ への直接リンク" href="https://carriage-inc.github.io/engineer-handson/blog/github-pull-request#%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E3%83%9E%E3%83%BC%E3%82%B8">​</a></h2>
+<p>レビューが完了し、問題がなければ、プルリクエストをマージします。プルリクエストのページにアクセスし、<code>Merge pull request</code> ボタンをクリックすると、main ブランチに変更がマージされます。</p>]]></content>
         <author>
             <name>ユースケ</name>
         </author>
