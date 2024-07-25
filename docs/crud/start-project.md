@@ -34,6 +34,17 @@ http://localhost にアクセスして、Laravel の初期画面が表示され�
 
 VSCode を使って、sample-app ディレクトリを開いてください。
 
+:::note
+もし次のようなエラーが出た場合はマイグレーションが必要なので、以下のコマンドを実行してください。
+
+![Base table or view not found: 1146 Table 'laravel.sessions' doesn't exist](img/migrationError.png)
+
+```bash
+./vendor/bin/sail artisan migrate
+```
+
+:::
+
 ### Laravel Sail のコマンド
 
 Laravel Sail は、Laravel アプリケーションを Docker コンテナで動作させるためのコマンドを提供します。
