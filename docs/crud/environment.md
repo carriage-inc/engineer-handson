@@ -6,6 +6,30 @@ description: CRUDアプリ開発の環境構築手順
 
 本コースに必要な環境構築手順を説明します。
 
+## (Windows のみ) WSL2 の有効化
+
+Windows では、WSL (Windows Subsystem for Linux) 2 という機能を有効化する必要があります。
+これは、Windows 上で Linux を動かすことができる機能で、Docker などの開発ツールを使う際に必要です。
+
+まずは Windows PowerShell を管理者権限で起動し、以下のコマンドを実行してください。
+
+```bash
+wsl --install
+```
+
+コマンドを実行すると、WSL2 の有効化に必要なパッケージがインストールされ、Ubuntu という名前の Linux ディストリビューションがインストールされます。
+インストールが完了したら、PC を再起動してください。
+
+再起動すると Ubuntu が自動で起動されるので、ユーザ名とパスワードを設定します。
+
+:::note
+もし Ubuntu 上でエラーが出た場合は、CPU の仮想化機能が無効になっている可能性があります。タスクマネージャーを開き、以下の項目が無効になっている場合は BIOS から有効にしてください。
+
+![alt text](img/cpuVirtualization.png)
+:::
+
+今後シェルを起動する際は、Windows PowerShell ではなく Ubuntu を使ってください。
+
 ## Docker Desktop のインストール
 
 Docker Desktop は、Docker というコンテナ仮想化技術を利用するためのソフトウェアです。
