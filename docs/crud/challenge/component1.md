@@ -144,7 +144,11 @@ Tailwind CSS のクラスが反映できるようにするために、まずは�
 @endphp
 
 <button
-    {{ $attributes->merge(['class' => 'text-white rounded-full ' . $colorClasses[$color] . ' ' . $sizeClasses[$size] . ' ' . $typeClasses[$type], 'onclick' => $onclick]) }}>
+    {{ $attributes->merge([
+        'class' => 'text-white rounded-full ' . $colorClasses[$color] . ' ' . $sizeClasses[$size],
+        'type' => $type, 
+        'onclick' => $onclick
+    ]) }}>
     {{ $slot }}
 </button>
 ```
